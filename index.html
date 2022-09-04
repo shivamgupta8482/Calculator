@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1{
+            text-align: center;
+            color: teal;
+            font-size: 60px;
+        }
+        #container{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            width: 15%;
+            height: auto;
+            margin: auto;
+            padding: 30px;
+        }
+        #display{
+            width: 95%;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            
+            height: 60px;
+            margin: auto;
+            border-radius: 10px;
+            
+
+        }
+
+        #button{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(4,auto);
+            gap: 5px;
+            height: auto;
+           
+            margin-top: 30px;
+            margin-left: 10px;
+            
+
+            
+       
+        }
+        #button>div:hover{
+            background-color: blue;
+            
+        }
+        #button>div{
+            width: 50px;
+            height: 50px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            
+        }
+        .red{
+            background-color: red;
+            color: white;
+        }
+        .black{
+            background-color: black;
+            color: white;
+        }
+        #display {
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+    </style>
+</head>
+<body>
+    <h1>Masai Calculator</h1>
+    <div id="container">
+            <div id="display">
+
+            </div>
+            <div id="button">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div class="black">+</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div class="black">-</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div class="black">x</div>
+                <div class="red">C</div>
+                <div>0</div>
+                <div class="black">=</div>
+                <div class="black">/</div>
+
+            </div>
+
+    </div>
+    
+</body>
+</html>
+<script>
+   var abc = document.querySelectorAll("#button>div");
+  var bag ="";
+   for(var i = 0;i<abc.length;i++){
+        abc[i].addEventListener("click",myFunction);
+   }
+   function myFunction() {
+    var targetNumber = event.target.innerText;
+
+    if (targetNumber == "C") {
+      bag = "";
+      document.querySelector("#display").innerText = "";
+    } else if (targetNumber == "=") {
+      //console.log(eval(bag));
+      document.querySelector("#display").innerText = eval(bag);
+    } else {
+      bag = bag + targetNumber;
+      document.querySelector("#display").innerText = bag;
+    }
+  }
+  
+</script>
